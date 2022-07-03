@@ -14,39 +14,43 @@ import AvatarList from '../../components/AvatarList';
 import {IGetCast} from '../../services/Cast';
 import {EpisodeType} from '../../types';
 import CardEpisode from '../../components/CardEpisode';
+import * as AppContext from '../../contexts/AppContext';
+import useDetails from '../../hooks/useDetails';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 const mockedDispatch = jest.fn();
+const mockedNavigate = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native');
   return {
     ...actualNav,
     useNavigation: () => ({
-      navigate: jest.fn(),
+      navigate: mockedNavigate,
       dispatch: mockedDispatch,
     }),
   };
 });
 
-jest.mock(
-  'react-native/Libraries/Components/Touchable/TouchableOpacity.js',
-  () => {
-    const { View } = require('react-native')
-    const MockTouchable = props => {
-      return <View {...props} />
-    }
-    MockTouchable.displayName = 'TouchableOpacity'
-
-    return MockTouchable
-  }
-)
+jest.mock('react-native/Libraries/Components/Touchable/TouchableOpacity', () => 'TouchableOpacity');
 
 describe('Details Component', () => {
   beforeEach(() => {
     mockedDispatch.mockClear();
   });
+  
 
   it('Should render Header Component', async () => {
+
+    render(<useDetails />)
+    const contextValues = { loaded: false };
+    jest
+      .spyOn(AppContext, 'useAppContext')
+      .mockImplementation(() => contextValues);
+
+    await waitFor(() => expect(contextValues.loaded).not.toBeTruthy())
+
     const TVShowName: string = 'The Powerpuff Girls';
 
     const headerImage = render(
@@ -58,7 +62,7 @@ describe('Details Component', () => {
       />,
     ).toJSON();
 
-    const headerTitle = render(<Title>{TVShowName}</Title>);
+    const headerTitle: RenderResult = render(<Title>{TVShowName}</Title>);
 
     expect(headerImage).toBeTruthy();
     expect(headerTitle.getByText(TVShowName)).toBeTruthy();
@@ -97,8 +101,8 @@ describe('Details Component', () => {
   });
 
   it('Should has a Episode List', async () => {
-    const navigate = jest.fn();
-    
+    let navigation: StackNavigationProp = useNavigation();
+
     const episodesList: EpisodeType[] = [
       {
         id: 1,
@@ -117,20 +121,16 @@ describe('Details Component', () => {
       },
     ];
     expect(episodesList.length).toBeGreaterThan(0);
+
     const cardEpisode: RenderResult = render(
       <CardEpisode
-        key={episodesList[0].id}
-        title={episodesList[0].name}
-        cardImage={episodesList[0].image?.original}
-        number={episodesList[0]?.number}
-        duration={episodesList[0]?.runtime}
-        onPress={() => {
-          expect(screen.toJSON()).toMatchSnapshot()
-        }}
+        item={episodesList[0]}
+        onPress={() => navigation.navigate('Episodes', episodesList[0])}
       />
     );
 
     await waitFor(() => expect(cardEpisode).toBeTruthy())
     fireEvent.press(cardEpisode.toJSON());
+    await waitFor(() => expect(navigation.navigate).toHaveBeenCalledWith('Episodes', episodesList[0]))
   });
 });
