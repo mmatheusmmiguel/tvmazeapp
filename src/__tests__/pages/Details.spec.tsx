@@ -100,7 +100,7 @@ describe('Details Component', () => {
     expect(screen.queryAllByText('Matheus')).toBeTruthy();
   });
 
-  it('Should has a Episode List', async () => {
+  it('Should has a Episode List and Click', async () => {
     let navigation: StackNavigationProp = useNavigation();
 
     const episodesList: EpisodeType[] = [
