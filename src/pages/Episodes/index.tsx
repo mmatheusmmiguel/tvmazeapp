@@ -71,7 +71,7 @@ const Episode: React.FC = (details: {
               <Divisor />
               <Info name="Season" description={episode.season} />
             </ContainerInfo>
-            <Card text={episode?.summary} title={'Summary'} />
+            {episode?.summary && <Card text={episode.summary} title={'Summary'} />}
             <Button
               icon={'play-arrow'}
               buttonFontColor={constants.COLORS.WHITE}

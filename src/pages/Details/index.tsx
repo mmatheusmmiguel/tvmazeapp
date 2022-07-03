@@ -37,6 +37,7 @@ import {
   Title,
   SeasonsContainer,
   TextSeason,
+  ContainerCardEpisodeScrollView,
 } from './styles';
 import constants from '../../constants';
 import { SeasonType } from '../../types';
@@ -108,16 +109,15 @@ const Details: React.FC = () => {
                 {seasons?.map((i: SeasonType) => (
                   <SeasonsContainer
                     onPress={() => handleChangeSeason(i)}
-                    key={i}>
+                    key={i}
+                    backgroundColor={selectedSeason == i ? constants.COLORS.RED : constants.COLORS.BLACK}
+                    >
                     <TextSeason>{i}</TextSeason>
                   </SeasonsContainer>
                 ))}
               </ScrollView>
 
-              <ScrollView
-                ref={scrollRef}
-                horizontal
-                style={{marginTop: 10, padding: 10}}>
+              <ContainerCardEpisodeScrollView ref={scrollRef} horizontal>
                 {list._embedded?.episodes
                   ?.filter(i => i.season === selectedSeason)
                   .map(item => (
@@ -129,7 +129,7 @@ const Details: React.FC = () => {
                       }}
                     />
                   ))}
-              </ScrollView>
+              </ContainerCardEpisodeScrollView>
               <TextDetails>Cast & Crew</TextDetails>
               <AvatarList horizontal={true} dataSource={castList} />
             </Container>

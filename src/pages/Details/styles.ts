@@ -48,7 +48,7 @@ export const Title = styled.Text`
     text-shadow: 2px 2px 5px ${constants.COLORS.BLACK};
 `
 export const SeasonsContainer = styled.TouchableOpacity`
-    padding: 10px 10px 10px 10px;
+    padding: 10px 15px 10px 15px;
     margin: 10px;
     border-radius: 5px;
     align-items: center;
@@ -58,4 +58,8 @@ export const TextSeason = styled.Text`
     font-size: 24px;
     color: ${constants.COLORS.WHITE}
     font-weight: bold;
+`
+export const ContainerCardEpisodeScrollView = styled.ScrollView`
+    margin-top: 10px;
+    padding: 10px;
 `
