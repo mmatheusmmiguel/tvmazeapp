@@ -47,3 +47,15 @@ export const Title = styled.Text`
     font-weight: bold;
     text-shadow: 2px 2px 5px ${constants.COLORS.BLACK};
 `
+export const SeasonsContainer = styled.TouchableOpacity`
+    padding: 10px 10px 10px 10px;
+    margin: 10px;
+    border-radius: 5px;
+    align-items: center;
+    background-color: ${props => props.backgroundColor ? props.backgroundColor : constants.COLORS.BLACK}
+`
+export const TextSeason = styled.Text`
+    font-size: 24px;
+    color: ${constants.COLORS.WHITE}
+    font-weight: bold;
+`

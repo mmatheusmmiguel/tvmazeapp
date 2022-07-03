@@ -35,6 +35,8 @@ import {
   TextDetails,
   ForegroundContainer,
   Title,
+  SeasonsContainer,
+  TextSeason,
 } from './styles';
 import constants from '../../constants';
 
@@ -78,7 +80,7 @@ const Details: React.FC = () => {
           scrollViewBackgroundColor={constants.COLORS.BLACK}
           renderHeader={() => (
             <HeaderImage
-              testID={"header_image"}
+              testID={'header_image'}
               source={{uri: list.image?.original}}
               height={constants.IMAGE_HEADER_HEIGHT}
               width={width}
@@ -86,12 +88,17 @@ const Details: React.FC = () => {
           )}
           renderForeground={() => (
             <ForegroundContainer>
-              <Title testID={"header_title"}>{list.name?.toUpperCase()}</Title>
+              <Title testID={'header_title'}>{list.name?.toUpperCase()}</Title>
             </ForegroundContainer>
           )}>
           <TriggeringView>
             <ContainerInfo>
-              <Info name="Rating" icon={'star'} iconSize={14.5} description={list.rating?.average} />
+              <Info
+                name="Rating"
+                icon={'star'}
+                iconSize={14.5}
+                description={list.rating?.average}
+              />
               <Divisor />
               <Info name="Network" description={list.network?.name} />
               <Divisor />
@@ -103,22 +110,11 @@ const Details: React.FC = () => {
               <TextDetails>Seasons</TextDetails>
               <ScrollView horizontal>
                 {seasons?.map((i: SeasonType) => (
-                  <TouchableOpacity
+                  <SeasonsContainer
                     onPress={() => handleChangeSeason(i)}
-                    key={i}
-                    style={{
-                      paddingHorizontal: 15,
-                      paddingVertical: 10,
-                      margin: 10,
-                      borderRadius: 5,
-                      alignItems: 'center',
-                      backgroundColor: selectedSeason === i ? constants.COLORS.RED : constants.COLORS.BLACK,
-                    }}>
-                    <Text
-                      style={{fontSize: 24, color: constants.COLORS.WHITE, fontWeight: 'bold'}}>
-                      {i}
-                    </Text>
-                  </TouchableOpacity>
+                    key={i}>
+                    <TextSeason>{i}</TextSeason>
+                  </SeasonsContainer>
                 ))}
               </ScrollView>
 

@@ -15,15 +15,22 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-it('Check if Header is on document', async () => {
-
-  const TVShowName = "The Powerpuff Girls";
+describe('Details Component', async () => {
 
   beforeEach(() => {
     mockedDispatch.mockClear();
   });
-  
-  const { getByTestId, queryByTestId, getByText } = render(<Details />);
 
-  console.log(getByText(TVShowName));
-});
+  it('Should render Header Component', async () => {
+
+    const TVShowName = "The Powerpuff Girls";
+    
+    const { getByTestId, queryByTestId, getByText, findAllByTestId, debug } = render(<Details />);
+    debug();
+    
+
+
+  });
+
+})
+
