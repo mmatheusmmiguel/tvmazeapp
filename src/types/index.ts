@@ -18,6 +18,6 @@ export interface EpisodeType {
     runtime: number;
     season: number;
     summary: string;
-    type: string;
-    url: string;
+    type?: string;
+    url?: string;
   }

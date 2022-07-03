@@ -1,6 +1,7 @@
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
-export const CardEpisodeContainer = styled.TouchableOpacity`
+export const CardEpisodeContainer: TouchableOpacity = styled.TouchableOpacity`
   margin-right: 20px;
   flex-direction: column;
   align-items: flex-start;

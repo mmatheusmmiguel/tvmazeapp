@@ -47,7 +47,7 @@ interface SeasonType {
 }
 
 const Details: React.FC = () => {
-  const {darkMode, list, loaded, setLoaded, castList} = useContext(AppContext);
+  const { list, loaded, setLoaded, castList} = useContext(AppContext);
   const [seasons, setSeasons] = useState<SeasonType[]>([]);
   const [selectedSeason, setSelectedSeason] = useState<SeasonType>(1);
 
@@ -80,6 +80,7 @@ const Details: React.FC = () => {
           scrollViewBackgroundColor={constants.COLORS.BLACK}
           renderHeader={() => (
             <HeaderImage
+              data-testid="header_image"
               testID={'header_image'}
               source={{uri: list.image?.original}}
               height={constants.IMAGE_HEADER_HEIGHT}
@@ -88,7 +89,7 @@ const Details: React.FC = () => {
           )}
           renderForeground={() => (
             <ForegroundContainer>
-              <Title testID={'header_title'}>{list.name?.toUpperCase()}</Title>
+              <Title data-testid="header_title" testID={'header_title'}>{list.name?.toUpperCase()}</Title>
             </ForegroundContainer>
           )}>
           <TriggeringView>
@@ -119,6 +120,7 @@ const Details: React.FC = () => {
               </ScrollView>
 
               <ScrollView
+                testID={'episodeScrollView'}
                 ref={scrollRef}
                 horizontal
                 style={{marginTop: 10, padding: 10}}>
@@ -132,7 +134,6 @@ const Details: React.FC = () => {
                       number={item?.number}
                       duration={item?.runtime}
                       onPress={() => {
-                        console.log(item);
                         navigation.navigate('Episodes', item);
                       }}
                     />
