@@ -18,9 +18,11 @@ import * as AppContext from '../../contexts/AppContext';
 import useDetails from '../../hooks/useDetails';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../routes/stack.routes';
 
 const mockedDispatch = jest.fn();
 const mockedNavigate = jest.fn();
+type detailScreenProps = StackNavigationProp<RootStackParamList, 'Details'>;
 
 jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native');
@@ -101,7 +103,7 @@ describe('Details Component', () => {
   });
 
   it('Should has a Episode List and Click', async () => {
-    let navigation: StackNavigationProp = useNavigation();
+    let navigation = useNavigation<detailScreenProps>();
 
     const episodesList: EpisodeType[] = [
       {

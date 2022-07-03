@@ -39,12 +39,9 @@ import {
   TextSeason,
 } from './styles';
 import constants from '../../constants';
+import { SeasonType } from '../../types';
 
 type detailScreenProps = StackNavigationProp<RootStackParamList, 'Details'>;
-
-interface SeasonType {
-  id: number;
-}
 
 const Details: React.FC = () => {
   const { list, loaded, setLoaded, castList} = useContext(AppContext);
