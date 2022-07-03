@@ -16,6 +16,8 @@ type AppContextType = {
   setCastList: IGetCast;
 };
 
+export const useAppContext = () => useContext(AppContext);
+
 const AppContext = createContext<AppContextType>({} as AppContextType);
 
 function AppProvider({ children }: AppContextProps) {

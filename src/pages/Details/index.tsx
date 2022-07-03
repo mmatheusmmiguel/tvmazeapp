@@ -39,12 +39,9 @@ import {
   TextSeason,
 } from './styles';
 import constants from '../../constants';
+import { SeasonType } from '../../types';
 
 type detailScreenProps = StackNavigationProp<RootStackParamList, 'Details'>;
-
-interface SeasonType {
-  id: number;
-}
 
 const Details: React.FC = () => {
   const { list, loaded, setLoaded, castList} = useContext(AppContext);
@@ -80,8 +77,6 @@ const Details: React.FC = () => {
           scrollViewBackgroundColor={constants.COLORS.BLACK}
           renderHeader={() => (
             <HeaderImage
-              data-testid="header_image"
-              testID={'header_image'}
               source={{uri: list.image?.original}}
               height={constants.IMAGE_HEADER_HEIGHT}
               width={width}
@@ -89,7 +84,7 @@ const Details: React.FC = () => {
           )}
           renderForeground={() => (
             <ForegroundContainer>
-              <Title data-testid="header_title" testID={'header_title'}>{list.name?.toUpperCase()}</Title>
+              <Title>{list.name?.toUpperCase()}</Title>
             </ForegroundContainer>
           )}>
           <TriggeringView>
@@ -120,7 +115,6 @@ const Details: React.FC = () => {
               </ScrollView>
 
               <ScrollView
-                testID={'episodeScrollView'}
                 ref={scrollRef}
                 horizontal
                 style={{marginTop: 10, padding: 10}}>
@@ -129,10 +123,7 @@ const Details: React.FC = () => {
                   .map(item => (
                     <CardEpisode
                       key={item.id}
-                      title={item.name}
-                      cardImage={item.image?.original}
-                      number={item?.number}
-                      duration={item?.runtime}
+                      item={item}
                       onPress={() => {
                         navigation.navigate('Episodes', item);
                       }}

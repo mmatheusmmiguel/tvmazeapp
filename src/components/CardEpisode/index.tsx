@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Text,
@@ -7,37 +8,33 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import styled from 'styled-components/native';
+import { EpisodeType } from '../../types';
 import { CardEpisodeContainer, CardImageBackground, ImageOverlayView, DurationText, DurationTextContainer, TitleText, EpisodeNumberText } from './styles';
 
 interface CardEpisodeProps {
-  title?: string;
-  cardImage: string;
-  number: number;
+  item: EpisodeType;
   imageOverlayOpacity?: number;
-  duration?: string | number;
   onPress: Function;
 }
 
 export function CardEpisode({
-  title,
-  cardImage,
-  duration,
+  item,
   onPress,
-  number,
   imageOverlayOpacity,
 }: CardEpisodeProps) {
+
   return (
     <CardEpisodeContainer onPress={onPress}>
       <CardImageBackground
-        source={{uri: cardImage}}
+        source={{uri: item.image?.original}}
         imageStyle={{borderRadius: 8}}>
         <ImageOverlayView opacity={imageOverlayOpacity} />
         <DurationTextContainer>
-          <DurationText>{duration} min</DurationText>
+          <DurationText>{item.runtime} min</DurationText>
         </DurationTextContainer>
       </CardImageBackground>
-      <EpisodeNumberText>EPISODE {number}</EpisodeNumberText>
-      <TitleText>{title}</TitleText>
+      <EpisodeNumberText>EPISODE {item.number}</EpisodeNumberText>
+      <TitleText>{item.name}</TitleText>
     </CardEpisodeContainer>
   );
 }
