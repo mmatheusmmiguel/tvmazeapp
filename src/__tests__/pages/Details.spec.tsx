@@ -103,7 +103,7 @@ describe('Details Component', () => {
   });
 
   it('Should has a Episode List and Click', async () => {
-    let navigation = useNavigation<detailScreenProps>();
+    let navigation: StackNavigationProp = useNavigation<detailScreenProps>();
 
     const episodesList: EpisodeType[] = [
       {
