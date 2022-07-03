@@ -28,6 +28,19 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
+jest.mock(
+  'react-native/Libraries/Components/Touchable/TouchableOpacity.js',
+  () => {
+    const { View } = require('react-native')
+    const MockTouchable = props => {
+      return <View {...props} />
+    }
+    MockTouchable.displayName = 'TouchableOpacity'
+
+    return MockTouchable
+  }
+)
+
 describe('Details Component', () => {
   beforeEach(() => {
     mockedDispatch.mockClear();
@@ -84,6 +97,8 @@ describe('Details Component', () => {
   });
 
   it('Should has a Episode List', async () => {
+    const navigate = jest.fn();
+    
     const episodesList: EpisodeType[] = [
       {
         id: 1,
@@ -102,7 +117,7 @@ describe('Details Component', () => {
       },
     ];
     expect(episodesList.length).toBeGreaterThan(0);
-    const cardEpiose: RenderResult = render(
+    const cardEpisode: RenderResult = render(
       <CardEpisode
         key={episodesList[0].id}
         title={episodesList[0].name}
@@ -110,13 +125,12 @@ describe('Details Component', () => {
         number={episodesList[0]?.number}
         duration={episodesList[0]?.runtime}
         onPress={() => {
-          console.log('ok');
+          expect(screen.toJSON()).toMatchSnapshot()
         }}
       />
     );
 
-    await waitFor(() => expect(cardEpiose).toBeTruthy())
-    
-    // fireEvent.press(cardEpisodes);
+    await waitFor(() => expect(cardEpisode).toBeTruthy())
+    fireEvent.press(cardEpisode.toJSON());
   });
 });

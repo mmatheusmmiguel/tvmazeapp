@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details Component Should has a Episode List 1`] = `
+<View
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "marginRight": 20,
+      },
+    ]
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Array [
+        Object {
+          "height": 110,
+          "width": 200,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": 110,
+            "width": 200,
+          },
+          Object {
+            "borderRadius": 8,
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#000",
+            "bottom": 0,
+            "left": 0,
+            "opacity": 0.3,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#fff",
+              "fontSize": 16,
+              "fontWeight": "500",
+              "paddingBottom": 5,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+              "paddingTop": 5,
+              "textShadowColor": "#000",
+              "textShadowOffset": Object {
+                "height": 2,
+                "width": 2,
+              },
+              "textShadowRadius": 5,
+            },
+          ]
+        }
+      >
+        10
+         min
+      </Text>
+    </View>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ccc",
+          "fontSize": 16,
+          "marginTop": 5,
+        },
+      ]
+    }
+  >
+    EPISODE 
+    1
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#fff",
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "width": 200,
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
