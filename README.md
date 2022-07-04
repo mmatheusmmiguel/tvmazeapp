@@ -1,7 +1,6 @@
 <div align="center" style="display: flex; flex-direction: row;">
-  <img alt="TVMaze_Splash" src="https://i.imgur.com/X0NWP08.png" width="33.33%">
-  <img alt="TVMaze_Splash" src="https://i.imgur.com/FefZvqw.png" width="33.33%">
-  <img alt="TVMaze_Splash" src="https://i.imgur.com/xiq9K6A.png" width="33.33%">
+  <img alt="TVMaze_Show" src="https://i.imgur.com/FefZvqw.png" width="33.33%">
+  <img alt="TVMaze_Episode" src="https://i.imgur.com/xiq9K6A.png" width="33.33%">
 </div>
 
 <p align="center" style="text-align: center;">
