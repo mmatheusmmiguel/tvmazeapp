@@ -51,10 +51,6 @@ const Details: React.FC = () => {
     scrollRef.current?.scrollTo({x: 0, y: 0, animated: true});
   };
 
-  useEffect(() => {
-    console.log(seasons);
-  }, [seasons]);
-
   return (
     <>
       <Container>
