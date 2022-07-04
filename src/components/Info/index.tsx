@@ -15,7 +15,7 @@ interface InfoItemProps {
   iconColor?: string;
   nameFontSize?: number;
   nameFontColor?: string;
-  description: string | number;
+  description: string;
   descriptionFontSize?: number;
   descriptionFontColor?: string;
 }

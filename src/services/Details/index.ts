@@ -2,6 +2,7 @@
  * @namespace DetailsService
  */
 
+import {EpisodeType, IGenre} from '../../types';
 import GenericDAO from '../GenericDAO';
 
 const route = 'shows';
@@ -12,7 +13,7 @@ export interface IGetDetails {
   name: string;
   type: string;
   language: string;
-  genres?: {}[];
+  genres?: IGenre;
   status: string;
   runtime?: number;
   averageRuntime?: number;
@@ -24,8 +25,8 @@ export interface IGetDetails {
     days: {}[];
   }[];
   rating?: {
-    avarage?: number;
-  }[];
+    average?: string;
+  };
   weight: number;
   network: {
     id: number;
@@ -51,21 +52,7 @@ export interface IGetDetails {
   summary: string;
   _links: {}[];
   _embedded: {
-    episodes: {
-      id: string;
-      url: string;
-      name: string;
-      season: number;
-      number: number;
-      type: string;
-      runtime: number;
-      airdate: string;
-      airtime: string;
-      image: {
-        medium: string;
-        original: string;
-      };
-    }[];
+    episodes: EpisodeType[];
   };
 }
 
