@@ -29,6 +29,7 @@ build/
 local.properties
 android/gradle.properties
 android/app/tvmazeapp-key.keystore
+tvmazeapp-key.keystore
 *.iml
 *.hprof
 
