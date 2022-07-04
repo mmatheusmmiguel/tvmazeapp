@@ -1,6 +1,7 @@
-<p align="center">
-  
-</p>
+<div align="center" style="display: flex; flex-direction: row;">
+  <img alt="TVMaze_Splash" src="https://i.imgur.com/X0NWP08.png" width="100%">
+  <img alt="TVMaze_Splash" src="https://i.imgur.com/FefZvqw.png" width="100%">
+</div>
 
 <p align="center" style="text-align: center;">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
