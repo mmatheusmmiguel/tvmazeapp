@@ -40,12 +40,14 @@ import {
   ContainerCardEpisodeScrollView,
 } from './styles';
 import constants from '../../constants';
-import { SeasonType } from '../../types';
+import {SeasonType} from '../../types';
+import LottieView from 'lottie-react-native';
+import {LottieContainer, SplashContainer} from '../Splash/styles';
 
 type detailScreenProps = StackNavigationProp<RootStackParamList, 'Details'>;
 
 const Details: React.FC = () => {
-  const { list, loaded, setLoaded, castList} = useContext(AppContext);
+  const {list, loaded, setLoaded, castList} = useContext(AppContext);
   const [seasons, setSeasons] = useState<SeasonType[]>([]);
   const [selectedSeason, setSelectedSeason] = useState<SeasonType>(1);
 
@@ -68,6 +70,18 @@ const Details: React.FC = () => {
 
   return (
     <Container>
+      {!loaded && (
+        <SplashContainer>
+          <LottieContainer>
+            <LottieView
+              testID={'details_loading'}
+              source={require('../../assets/lottie/loading.json')}
+              autoPlay
+              loop
+            />
+          </LottieContainer>
+        </SplashContainer>
+      )}
       {loaded && (
         <ImageHeaderScrollView
           maxHeight={constants.IMAGE_HEADER_HEIGHT}
@@ -110,8 +124,11 @@ const Details: React.FC = () => {
                   <SeasonsContainer
                     onPress={() => handleChangeSeason(i)}
                     key={i}
-                    backgroundColor={selectedSeason == i ? constants.COLORS.RED : constants.COLORS.BLACK}
-                    >
+                    backgroundColor={
+                      selectedSeason == i
+                        ? constants.COLORS.RED
+                        : constants.COLORS.BLACK
+                    }>
                     <TextSeason>{i}</TextSeason>
                   </SeasonsContainer>
                 ))}
