@@ -1,11 +1,11 @@
+import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useEffect, useRef} from 'react';
-import {Animated, Easing, View, Text, StatusBar} from 'react-native';
+import LottieView from 'lottie-react-native';
+import React from 'react';
+import {StatusBar} from 'react-native';
+import constants from '../../constants';
 import {RootStackParamList} from '../../routes/stack.routes';
 import {LottieContainer, SplashContainer} from './styles';
-import LottieView from 'lottie-react-native';
-import {useNavigation} from '@react-navigation/native';
-import constants from '../../constants';
 
 type splashScreenProps = StackNavigationProp<RootStackParamList, 'Splash'>;
 
@@ -18,7 +18,10 @@ const Splash: React.FC = () => {
 
   return (
     <SplashContainer>
-      <StatusBar barStyle={'light-content'} backgroundColor={constants.COLORS.WHITE} /> 
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={constants.COLORS.WHITE}
+      />
       <LottieContainer>
         <LottieView
           testID={'splash_lottie'}

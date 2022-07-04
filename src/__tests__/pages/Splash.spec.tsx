@@ -1,5 +1,5 @@
+import {render} from '@testing-library/react-native';
 import React from 'react';
-import { render, screen } from '@testing-library/react-native';
 import Splash from '../../pages/Splash';
 
 const mockedDispatch = jest.fn();
@@ -15,14 +15,11 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-
 it('Check if Lottie is on document', () => {
-  
   beforeEach(() => {
     mockedDispatch.mockClear();
   });
 
-
-  const { getByTestId, queryByTestId } = render(<Splash />)
-  expect(getByTestId('splash_lottie').toBeInTheDocument);
+  const {getByTestId} = render(<Splash />);
+  expect(getByTestId('splash_lottie')).toBeTruthy();
 });

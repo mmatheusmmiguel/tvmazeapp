@@ -1,4 +1,5 @@
-import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import {
   fireEvent,
   render,
@@ -6,19 +7,16 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react-native';
-import Details from '../../pages/Details';
 import 'jest-styled-components';
-import {HeaderImage, Title} from '../../pages/Details/styles';
-import constants from '../../constants';
+import React from 'react';
 import AvatarList from '../../components/AvatarList';
+import CardEpisode from '../../components/CardEpisode';
+import constants from '../../constants';
+import * as AppContext from '../../contexts/AppContext';
+import {HeaderImage, Title} from '../../pages/Details/styles';
+import {RootStackParamList} from '../../routes/stack.routes';
 import {IGetCast} from '../../services/Cast';
 import {EpisodeType} from '../../types';
-import CardEpisode from '../../components/CardEpisode';
-import * as AppContext from '../../contexts/AppContext';
-import useDetails from '../../hooks/useDetails';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../routes/stack.routes';
 
 const mockedDispatch = jest.fn();
 const mockedNavigate = jest.fn();
@@ -35,23 +33,24 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-jest.mock('react-native/Libraries/Components/Touchable/TouchableOpacity', () => 'TouchableOpacity');
+jest.mock(
+  'react-native/Libraries/Components/Touchable/TouchableOpacity',
+  () => 'TouchableOpacity',
+);
 
 describe('Details Component', () => {
   beforeEach(() => {
     mockedDispatch.mockClear();
   });
-  
 
   it('Should render Header Component', async () => {
-
-    render(<useDetails />)
-    const contextValues = { loaded: false };
+    render(<useDetails />);
+    const contextValues = {loaded: false};
     jest
       .spyOn(AppContext, 'useAppContext')
       .mockImplementation(() => contextValues);
 
-    await waitFor(() => expect(contextValues.loaded).not.toBeTruthy())
+    await waitFor(() => expect(contextValues.loaded).not.toBeTruthy());
 
     const TVShowName: string = 'The Powerpuff Girls';
 
@@ -96,7 +95,7 @@ describe('Details Component', () => {
         },
       },
     ];
-    const {queryAllByText} = render(<AvatarList dataSource={castList} />);
+    render(<AvatarList dataSource={castList} />);
 
     expect(castList.length).toBeGreaterThan(0);
     expect(screen.queryAllByText('Matheus')).toBeTruthy();
@@ -128,11 +127,16 @@ describe('Details Component', () => {
       <CardEpisode
         item={episodesList[0]}
         onPress={() => navigation.navigate('Episodes', episodesList[0])}
-      />
+      />,
     );
 
-    await waitFor(() => expect(cardEpisode).toBeTruthy())
+    await waitFor(() => expect(cardEpisode).toBeTruthy());
     fireEvent.press(cardEpisode.toJSON());
-    await waitFor(() => expect(navigation.navigate).toHaveBeenCalledWith('Episodes', episodesList[0]))
+    await waitFor(() =>
+      expect(navigation.navigate).toHaveBeenCalledWith(
+        'Episodes',
+        episodesList[0],
+      ),
+    );
   });
 });

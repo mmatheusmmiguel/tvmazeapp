@@ -1,53 +1,39 @@
+import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import LottieView from 'lottie-react-native';
 import React, {useContext, useEffect, useRef, useState} from 'react';
-import {
-  Alert,
-  Dimensions,
-  FlatList,
-  Image,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Dimensions, ScrollView} from 'react-native';
 import {
   ImageHeaderScrollView,
   TriggeringView,
 } from 'react-native-image-header-scroll-view';
-import {RootStackParamList} from '../../routes/stack.routes';
-import DetailsService, {IGetDetails} from '../../services/Details';
-import CastService, {IGetCast} from '../../services/Cast';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {AppContext} from '../../contexts/AppContext';
-import {useNavigation} from '@react-navigation/native';
-import Card from '../../components/Card';
-import {Avatar} from '../../components/Avatar';
 import AvatarList from '../../components/AvatarList';
-import GenreList from '../../components/GenreList';
+import Card from '../../components/Card';
 import CardEpisode from '../../components/CardEpisode';
+import GenreList from '../../components/GenreList';
 import Info from '../../components/Info';
+import constants from '../../constants';
+import {AppContext} from '../../contexts/AppContext';
+import {RootStackParamList} from '../../routes/stack.routes';
+import {SeasonType} from '../../types';
+import {LottieContainer, SplashContainer} from '../Splash/styles';
 import {
   Container,
+  ContainerCardEpisodeScrollView,
   ContainerInfo,
   Divisor,
-  HeaderImage,
-  TextDetails,
   ForegroundContainer,
-  Title,
+  HeaderImage,
   SeasonsContainer,
+  TextDetails,
   TextSeason,
-  ContainerCardEpisodeScrollView,
+  Title,
 } from './styles';
-import constants from '../../constants';
-import {SeasonType} from '../../types';
-import LottieView from 'lottie-react-native';
-import {LottieContainer, SplashContainer} from '../Splash/styles';
 
 type detailScreenProps = StackNavigationProp<RootStackParamList, 'Details'>;
 
 const Details: React.FC = () => {
-  const {list, loaded, setLoaded, castList} = useContext(AppContext);
+  const {list, loaded, castList} = useContext(AppContext);
   const [seasons, setSeasons] = useState<SeasonType[]>([]);
   const [selectedSeason, setSelectedSeason] = useState<SeasonType>(1);
 
@@ -125,7 +111,7 @@ const Details: React.FC = () => {
                     onPress={() => handleChangeSeason(i)}
                     key={i}
                     backgroundColor={
-                      selectedSeason == i
+                      selectedSeason === i
                         ? constants.COLORS.RED
                         : constants.COLORS.BLACK
                     }>

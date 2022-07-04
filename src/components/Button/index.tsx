@@ -1,7 +1,6 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {ButtonContainer, ButtonTextBold} from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {ButtonContainer, ButtonTextBold} from './styles';
 
 interface ButtonProps {
   text: string;
@@ -24,8 +23,14 @@ export function Button({
 }: ButtonProps) {
   return (
     <ButtonContainer onPress={onPress} backgroundColor={backgroundColor}>
-      {icon && <Icon name={icon} color={buttonFontColor} size={iconSize ? iconSize : 32} />}
-      <ButtonTextBold>{text}</ButtonTextBold>
+      {icon && (
+        <Icon
+          name={icon}
+          color={buttonFontColor}
+          size={iconSize ? iconSize : 32}
+        />
+      )}
+      <ButtonTextBold fontSize={buttonFontSize}>{text}</ButtonTextBold>
     </ButtonContainer>
   );
 }

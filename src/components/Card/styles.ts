@@ -9,7 +9,7 @@ export const CardView = styled.View`
 
 //fontSize: 20, fontWeight: 'bold', color: '#FFF'
 export const CardTitle = styled.Text`
-    font-size: 20px;
-    font-weight: bold;
-    color: #FFF;
-`
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+`;

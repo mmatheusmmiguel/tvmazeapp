@@ -1,8 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import { IGetCast } from '../../services/Cast';
+import {IGetCast} from '../../services/Cast';
 import Avatar from '../Avatar';
-import { AvatarScrollView } from './styles';
+import {AvatarScrollView} from './styles';
 
 interface AvatarListProps {
   horizontal?: boolean;
@@ -10,11 +9,16 @@ interface AvatarListProps {
 }
 
 export function AvatarList({horizontal, dataSource}: AvatarListProps) {
-
   return (
     <AvatarScrollView horizontal={horizontal} isHorizontal={horizontal}>
-        {dataSource?.length && dataSource.map((item: IGetCast, index) => (
-            <Avatar key={index} url={item.person.image?.original} name={item.person?.name} description={item.character?.name} />
+      {dataSource?.length &&
+        dataSource.map((item: IGetCast, index) => (
+          <Avatar
+            key={index}
+            url={item.person.image?.original}
+            name={item.person?.name}
+            description={item.character?.name}
+          />
         ))}
     </AvatarScrollView>
   );

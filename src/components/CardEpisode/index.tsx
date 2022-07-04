@@ -1,15 +1,14 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import {EpisodeType} from '../../types';
 import {
-  Text,
-  Image,
-  ImageBackground,
-  View,
-  TouchableOpacity,
-} from 'react-native';
-import styled from 'styled-components/native';
-import { EpisodeType } from '../../types';
-import { CardEpisodeContainer, CardImageBackground, ImageOverlayView, DurationText, DurationTextContainer, TitleText, EpisodeNumberText } from './styles';
+  CardEpisodeContainer,
+  CardImageBackground,
+  DurationText,
+  DurationTextContainer,
+  EpisodeNumberText,
+  ImageOverlayView,
+  TitleText,
+} from './styles';
 
 interface CardEpisodeProps {
   item: EpisodeType;
@@ -22,7 +21,6 @@ export function CardEpisode({
   onPress,
   imageOverlayOpacity,
 }: CardEpisodeProps) {
-
   return (
     <CardEpisodeContainer onPress={onPress}>
       <CardImageBackground

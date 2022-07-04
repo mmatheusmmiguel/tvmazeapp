@@ -1,20 +1,20 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {IGenre} from '../../types';
 import Genre from '../Genre';
-import { GenreListContainer } from './styles';
+import {GenreListContainer} from './styles';
 
 interface GenreListProps {
   dataSource: IGenre[];
-  horizontal?: boolean;
 }
 
-export function GenreList({ dataSource, horizontal }: GenreListProps) {
+export function GenreList({dataSource}: GenreListProps) {
   return (
     <GenreListContainer>
-        {dataSource.length && dataSource?.map((item: IGenre, index) => (
-          <Genre key={index} text={item} />
+      {dataSource.length &&
+        dataSource?.map((item: IGenre, index) => (
+          <Genre key={index} text={String(item)} />
         ))}
-      </GenreListContainer>
+    </GenreListContainer>
   );
 }
 

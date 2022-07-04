@@ -1,14 +1,5 @@
-import React, {useEffect} from 'react';
-import {
-  Dimensions,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Linking,
-  Alert,
-} from 'react-native';
+import React from 'react';
+import {Dimensions, Linking} from 'react-native';
 import {
   ImageHeaderScrollView,
   TriggeringView,
@@ -71,7 +62,9 @@ const Episode: React.FC = (details: {
               <Divisor />
               <Info name="Season" description={episode.season} />
             </ContainerInfo>
-            {episode?.summary && <Card text={episode.summary} title={'Summary'} />}
+            {episode?.summary && (
+              <Card text={episode.summary} title={'Summary'} />
+            )}
             <Button
               icon={'play-arrow'}
               buttonFontColor={constants.COLORS.WHITE}

@@ -1,4 +1,4 @@
-interface IGenre {
+export interface IGenre {
   name: string;
 }
 export interface EpisodeType {

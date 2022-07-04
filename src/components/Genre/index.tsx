@@ -1,16 +1,24 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import { GenreContainer, GenreText } from './styles';
+import {GenreContainer, GenreText} from './styles';
 
 interface GenreItemProps {
   text: string;
   backgroundColor?: string;
+  genreFontSize?: number;
+  genreFontColor?: string;
 }
 
-export function Genre({text, backgroundColor, genreFontSize, genreFontColor}: GenreItemProps) {
+export function Genre({
+  text,
+  backgroundColor,
+  genreFontSize,
+  genreFontColor,
+}: GenreItemProps) {
   return (
-    <GenreContainer>
-      <GenreText>{text}</GenreText>
+    <GenreContainer backgroundColor={backgroundColor}>
+      <GenreText fontSize={genreFontSize} fontColor={genreFontColor}>
+        {text}
+      </GenreText>
     </GenreContainer>
   );
 }

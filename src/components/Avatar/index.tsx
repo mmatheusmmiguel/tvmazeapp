@@ -1,6 +1,10 @@
 import React from 'react';
-import {Image, View, Text} from 'react-native';
-import { AvatarContainer, AvatarIcon, AvatarNameText, AvatarDescriptionText } from './styles';
+import {
+  AvatarContainer,
+  AvatarDescriptionText,
+  AvatarIcon,
+  AvatarNameText,
+} from './styles';
 // import { Container } from './styles';
 
 interface AvatarProps {
@@ -24,11 +28,13 @@ export function Avatar({
   descriptionFontColor,
   descriptionFontSize,
 }: AvatarProps) {
-  
   return (
     <AvatarContainer>
       <AvatarIcon source={{uri: url}} size={size} />
-      <AvatarNameText testID={"avatar_name"} fontColor={nameFontColor} fontSize={nameFontSize}>
+      <AvatarNameText
+        testID={'avatar_name'}
+        fontColor={nameFontColor}
+        fontSize={nameFontSize}>
         {name}
       </AvatarNameText>
       <AvatarDescriptionText

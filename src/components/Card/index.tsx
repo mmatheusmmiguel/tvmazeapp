@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, useWindowDimensions, View} from 'react-native';
+import {useWindowDimensions} from 'react-native';
 import RenderHtml from 'react-native-render-html';
 import {CardTitle, CardView} from './styles';
 
@@ -14,7 +14,7 @@ export function Card({text, title}: CardProps) {
   const source = {
     html: text,
   };
-  
+
   return (
     <CardView>
       <CardTitle>{title}</CardTitle>
