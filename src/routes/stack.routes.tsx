@@ -2,7 +2,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import constants from '../constants';
 import Details from '../pages/Details';
-import Episodes from '../pages/Episodes';
+import { Episodes } from '../pages/Episodes';
 import Splash from '../pages/Splash';
 
 export type RootStackParamList = {

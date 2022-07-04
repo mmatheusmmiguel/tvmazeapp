@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, Linking} from 'react-native';
+import { Dimensions, Linking } from 'react-native';
 import {
   ImageHeaderScrollView,
   TriggeringView,
@@ -8,7 +8,7 @@ import Button from '../../components/Button';
 import Card from '../../components/Card';
 import Info from '../../components/Info';
 import constants from '../../constants';
-import {EpisodeType} from '../../types';
+import { EpisodeType } from '../../types';
 import {
   Container,
   ContainerInfo,
@@ -18,13 +18,10 @@ import {
   Title,
 } from '../Details/styles';
 
-const Episode: React.FC = (details: {
-  route: {
-    params: EpisodeType;
-  };
-}) => {
+export function Episodes(details: any) {
+
   const episode: EpisodeType = details.route.params;
-  const {width} = Dimensions.get('window');
+  const { width } = Dimensions.get('window');
 
   const openLinking = async (url: string) => {
     if (url) {
@@ -43,7 +40,7 @@ const Episode: React.FC = (details: {
         scrollViewBackgroundColor={constants.COLORS.BLACK}
         renderHeader={() => (
           <HeaderImage
-            source={{uri: episode.image?.original}}
+            source={{ uri: episode.image?.original }}
             height={constants.IMAGE_HEADER_HEIGHT}
             width={width}
           />
@@ -77,5 +74,3 @@ const Episode: React.FC = (details: {
     </Container>
   );
 };
-
-export default Episode;

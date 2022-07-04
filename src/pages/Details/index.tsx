@@ -1,8 +1,8 @@
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import LottieView from 'lottie-react-native';
-import React, {useContext, useEffect, useRef, useState} from 'react';
-import {Dimensions, ScrollView} from 'react-native';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { Dimensions, ScrollView } from 'react-native';
 import {
   ImageHeaderScrollView,
   TriggeringView,
@@ -13,10 +13,10 @@ import CardEpisode from '../../components/CardEpisode';
 import GenreList from '../../components/GenreList';
 import Info from '../../components/Info';
 import constants from '../../constants';
-import {AppContext} from '../../contexts/AppContext';
-import {RootStackParamList} from '../../routes/stack.routes';
-import {SeasonType} from '../../types';
-import {LottieContainer, SplashContainer} from '../Splash/styles';
+import { AppContext } from '../../contexts/AppContext';
+import { RootStackParamList } from '../../routes/stack.routes';
+import { SeasonType } from '../../types';
+import { LottieContainer, SplashContainer } from '../Splash/styles';
 import {
   Container,
   ContainerCardEpisodeScrollView,
@@ -33,11 +33,11 @@ import {
 type detailScreenProps = StackNavigationProp<RootStackParamList, 'Details'>;
 
 const Details: React.FC = () => {
-  const {list, loaded, castList} = useContext(AppContext);
+  const { list, loaded, castList } = useContext(AppContext);
   const [seasons, setSeasons] = useState<SeasonType[]>([]);
   const [selectedSeason, setSelectedSeason] = useState<SeasonType>(1);
 
-  const {width} = Dimensions.get('window');
+  const { width } = Dimensions.get('window');
 
   const navigation = useNavigation<detailScreenProps>();
 
@@ -51,7 +51,7 @@ const Details: React.FC = () => {
 
   const handleChangeSeason = async (season: SeasonType) => {
     setSelectedSeason(season);
-    scrollRef.current?.scrollTo({x: 0, y: 0}, true);
+    scrollRef.current?.scrollTo({ x: 0, y: 0 }, true);
   };
 
   return (
@@ -78,7 +78,7 @@ const Details: React.FC = () => {
           scrollViewBackgroundColor={constants.COLORS.BLACK}
           renderHeader={() => (
             <HeaderImage
-              source={{uri: list.image?.original}}
+              source={{ uri: list.image?.original }}
               height={constants.IMAGE_HEADER_HEIGHT}
               width={width}
             />

@@ -9,6 +9,7 @@ import {
 } from '@testing-library/react-native';
 import 'jest-styled-components';
 import React from 'react';
+import { ReactTestInstance } from 'react-test-renderer';
 import AvatarList from '../../components/AvatarList';
 import CardEpisode from '../../components/CardEpisode';
 import constants from '../../constants';
@@ -44,7 +45,7 @@ describe('Details Component', () => {
   });
 
   it('Should render Header Component', async () => {
-    render(<useDetails />);
+
     const contextValues = {loaded: false};
     jest
       .spyOn(AppContext, 'useAppContext')
@@ -126,12 +127,16 @@ describe('Details Component', () => {
     const cardEpisode: RenderResult = render(
       <CardEpisode
         item={episodesList[0]}
-        onPress={() => navigation.navigate('Episodes', episodesList[0])}
+        onPress={() => { 
+          if(episodesList.length) {
+            navigation.navigate('Episodes', episodesList[0] as any)  
+          }
+        }}
       />,
     );
 
     await waitFor(() => expect(cardEpisode).toBeTruthy());
-    fireEvent.press(cardEpisode.toJSON());
+    fireEvent.press(cardEpisode.toJSON() as ReactTestInstance);
     await waitFor(() =>
       expect(navigation.navigate).toHaveBeenCalledWith(
         'Episodes',
