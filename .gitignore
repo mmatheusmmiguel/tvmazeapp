@@ -27,8 +27,8 @@ build/
 .idea
 .gradle
 local.properties
-gradle.properties
-tvmazeapp-key.keystore
+android/gradle.properties
+android/app/tvmazeapp-key.keystore
 *.iml
 *.hprof
 
