@@ -17,7 +17,7 @@ import * as AppContext from '../../contexts/AppContext';
 import {HeaderImage, Title} from '../../pages/Details/styles';
 import {RootStackParamList} from '../../routes/stack.routes';
 import {IGetCast} from '../../services/Cast';
-import {EpisodeType} from '../../types';
+import {EpisodeType} from '../../@types';
 
 const mockedDispatch = jest.fn();
 const mockedNavigate = jest.fn();

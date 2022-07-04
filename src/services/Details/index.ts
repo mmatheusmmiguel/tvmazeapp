@@ -2,7 +2,7 @@
  * @namespace DetailsService
  */
 
-import {EpisodeType, IGenre} from '../../types';
+import {EpisodeType, IGenre} from '../../@types';
 import GenericDAO from '../GenericDAO';
 
 const route = 'shows';

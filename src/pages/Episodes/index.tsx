@@ -6,7 +6,7 @@ import Card from '../../components/Card';
 import {ImageHeaderScrollView} from '../../components/ImageHeaderScrollView';
 import Info from '../../components/Info';
 import constants from '../../constants';
-import {EpisodeType} from '../../types';
+import {EpisodeType} from '../../@types';
 import {
   Container,
   ContainerInfo,
@@ -29,7 +29,7 @@ export function Episodes(details: any) {
   return (
     <Container>
       <ImageHeaderScrollView
-        overlayColor={'#000'}
+        overlayColor={constants.COLORS.BLACK}
         maxHeight={constants.IMAGE_HEADER_HEIGHT}
         minHeight={90}
         maxOverlayOpacity={0.6}
@@ -47,7 +47,7 @@ export function Episodes(details: any) {
           />
         )}
         foregroundExtrapolate={'clamp'}
-        scrollViewBackgroundColor={'#000'}
+        scrollViewBackgroundColor={constants.COLORS.BLACK}
         useNativeDriver={true}
         foregroundParallaxRatio={0}
         ScrollViewComponent={() => <></>}>

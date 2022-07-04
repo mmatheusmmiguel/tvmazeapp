@@ -1,5 +1,5 @@
 import React from 'react';
-import {IGenre} from '../../types';
+import {IGenre} from '../../@types';
 import Genre from '../Genre';
 import {GenreListContainer} from './styles';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { EpisodeType } from '../../types';
+import {EpisodeType} from '../../@types';
 import {
   CardEpisodeContainer,
   CardImageBackground,
@@ -24,8 +24,8 @@ export function CardEpisode({
   return (
     <CardEpisodeContainer onPress={onPress}>
       <CardImageBackground
-        source={{ uri: item.image?.original }}
-        imageStyle={{ borderRadius: 8 }}>
+        source={{uri: item.image?.original}}
+        imageStyle={{borderRadius: 8}}>
         <ImageOverlayView opacity={imageOverlayOpacity} />
         <DurationTextContainer>
           <DurationText>{item.runtime} min</DurationText>

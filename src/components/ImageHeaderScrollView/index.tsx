@@ -120,12 +120,12 @@ export const ImageHeaderScrollView: FunctionComponent<Props> = forwardRef(
 
       const headerTransformStyle = {
         height: maxHeight,
-        transform: !disableHeaderGrow ? [{ scale: headerScale }] : undefined,
+        transform: !disableHeaderGrow ? [{scale: headerScale}] : undefined,
       };
 
       const overlayStyle = [
         styles.overlay,
-        { opacity: overlayOpacity, backgroundColor: overlayColor },
+        {opacity: overlayOpacity, backgroundColor: overlayColor},
       ];
 
       const disableOverlay =
@@ -153,7 +153,7 @@ export const ImageHeaderScrollView: FunctionComponent<Props> = forwardRef(
 
       const headerTransformStyle = {
         height: maxHeight,
-        transform: [{ translateY: headerTranslate }],
+        transform: [{translateY: headerTranslate}],
       };
 
       if (!renderForegroundProps) {
@@ -185,7 +185,7 @@ export const ImageHeaderScrollView: FunctionComponent<Props> = forwardRef(
 
       return (
         <Animated.View
-          style={[styles.header, styles.touchableFixedForeground, { height }]}>
+          style={[styles.header, styles.touchableFixedForeground, {height}]}>
           {renderTouchableFixedForegroundProps()}
         </Animated.View>
       );
@@ -244,9 +244,9 @@ export const ImageHeaderScrollView: FunctionComponent<Props> = forwardRef(
           style={[styles.container, style]}
           onScroll={
             useNativeDriver
-              ? Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
-                useNativeDriver: true,
-              })
+              ? Animated.event([{nativeEvent: {contentOffset: {y: scrollY}}}], {
+                  useNativeDriver: true,
+                })
               : onScroll
           }
         />

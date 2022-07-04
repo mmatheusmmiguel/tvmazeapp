@@ -24,12 +24,13 @@ const get = async (
       filters.map((item, index) => {
         stringRequest =
           stringRequest +
-          `${item.name}=${item.value}${!(filters.length - 1 === index) ? '&' : ''
+          `${item.name}=${item.value}${
+            !(filters.length - 1 === index) ? '&' : ''
           }`;
       });
     }
 
-    response = await axios.get(stringRequest, { headers });
+    response = await axios.get(stringRequest, {headers});
     return response.data;
   } catch (e) {
     if (axios.isAxiosError(e)) {

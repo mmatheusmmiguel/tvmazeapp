@@ -12,7 +12,7 @@ import Info from '../../components/Info';
 import constants from '../../constants';
 import {AppContext} from '../../contexts/AppContext';
 import {RootStackParamList} from '../../routes/stack.routes';
-import {SeasonType} from '../../types';
+import {SeasonType} from '../../@types';
 import {LottieContainer, SplashContainer} from '../Splash/styles';
 import {
   Container,
@@ -72,7 +72,7 @@ const Details: React.FC = () => {
         )}
         {loaded && list && (
           <ImageHeaderScrollView
-            overlayColor={'#000'}
+            overlayColor={constants.COLORS.BLACK}
             maxHeight={constants.IMAGE_HEADER_HEIGHT}
             minHeight={90}
             maxOverlayOpacity={0.6}
@@ -90,7 +90,7 @@ const Details: React.FC = () => {
               />
             )}
             foregroundExtrapolate={'clamp'}
-            scrollViewBackgroundColor={'#000'}
+            scrollViewBackgroundColor={constants.COLORS.BLACK}
             useNativeDriver={true}
             foregroundParallaxRatio={0}
             ScrollViewComponent={() => <></>}>
