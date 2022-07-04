@@ -2,7 +2,7 @@
  * @namespace DetailsService
  */
 
-import { EpisodeType } from '../../types';
+import {EpisodeType, IGenre} from '../../types';
 import GenericDAO from '../GenericDAO';
 
 const route = 'shows';
@@ -13,7 +13,7 @@ export interface IGetDetails {
   name: string;
   type: string;
   language: string;
-  genres?: string[];
+  genres?: IGenre;
   status: string;
   runtime?: number;
   averageRuntime?: number;

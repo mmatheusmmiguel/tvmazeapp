@@ -4,7 +4,7 @@ import Genre from '../Genre';
 import {GenreListContainer} from './styles';
 
 interface GenreListProps {
-  dataSource: string[];
+  dataSource: IGenre;
 }
 
 export function GenreList({dataSource}: GenreListProps) {

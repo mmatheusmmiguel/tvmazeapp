@@ -1,21 +1,19 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import LottieView from 'lottie-react-native';
-import React, { ElementType, useContext, useEffect, useRef, useState } from 'react';
-import { Dimensions, ScrollView } from 'react-native';
-
+import React, {useContext, useEffect, useRef, useState} from 'react';
+import {Dimensions, ScrollView} from 'react-native';
 import AvatarList from '../../components/AvatarList';
 import Card from '../../components/Card';
 import CardEpisode from '../../components/CardEpisode';
 import GenreList from '../../components/GenreList';
-import { ImageHeaderScrollView } from '../../components/ImageHeaderScrollView';
-
+import {ImageHeaderScrollView} from '../../components/ImageHeaderScrollView';
 import Info from '../../components/Info';
 import constants from '../../constants';
-import { AppContext } from '../../contexts/AppContext';
-import { RootStackParamList } from '../../routes/stack.routes';
-import { SeasonType } from '../../types';
-import { LottieContainer, SplashContainer } from '../Splash/styles';
+import {AppContext} from '../../contexts/AppContext';
+import {RootStackParamList} from '../../routes/stack.routes';
+import {SeasonType} from '../../types';
+import {LottieContainer, SplashContainer} from '../Splash/styles';
 import {
   Container,
   ContainerCardEpisodeScrollView,
@@ -32,11 +30,11 @@ import {
 type detailScreenProps = StackNavigationProp<RootStackParamList, 'Details'>;
 
 const Details: React.FC = () => {
-  const { list, loaded, castList } = useContext(AppContext);
-  const [seasons, setSeasons] = useState<Number[]>([]);
+  const {list, loaded, castList} = useContext(AppContext);
+  const [seasons, setSeasons] = useState<SeasonType>([]);
   const [selectedSeason, setSelectedSeason] = useState<Number>(1);
 
-  const { width } = Dimensions.get('window');
+  const {width} = Dimensions.get('window');
 
   const navigation = useNavigation<detailScreenProps>();
 
@@ -50,12 +48,12 @@ const Details: React.FC = () => {
 
   const handleChangeSeason = async (season: Number) => {
     setSelectedSeason(season);
-    scrollRef.current?.scrollTo({ x: 0, y: 0, animated: true });
+    scrollRef.current?.scrollTo({x: 0, y: 0, animated: true});
   };
 
   useEffect(() => {
     console.log(seasons);
-  }, [seasons])
+  }, [seasons]);
 
   return (
     <>
@@ -72,7 +70,7 @@ const Details: React.FC = () => {
             </LottieContainer>
           </SplashContainer>
         )}
-        {loaded && list &&
+        {loaded && list && (
           <ImageHeaderScrollView
             overlayColor={'#000'}
             maxHeight={constants.IMAGE_HEADER_HEIGHT}
@@ -86,16 +84,16 @@ const Details: React.FC = () => {
             )}
             renderHeader={() => (
               <HeaderImage
-                source={{ uri: list?.image?.original }}
+                source={{uri: list?.image?.original}}
                 height={constants.IMAGE_HEADER_HEIGHT}
-                width={width} />
+                width={width}
+              />
             )}
-            foregroundExtrapolate={"clamp"}
+            foregroundExtrapolate={'clamp'}
             scrollViewBackgroundColor={'#000'}
-            useNativeDriver={true} foregroundParallaxRatio={0}
-            ScrollViewComponent={() => (
-              <></>
-            )}>
+            useNativeDriver={true}
+            foregroundParallaxRatio={0}
+            ScrollViewComponent={() => <></>}>
             <>
               <ContainerInfo>
                 <Info
@@ -107,7 +105,10 @@ const Details: React.FC = () => {
                 <Divisor />
                 <Info name="Network" description={list?.network?.name} />
                 <Divisor />
-                <Info name="Country" description={String(list?.network?.country?.code)} />
+                <Info
+                  name="Country"
+                  description={String(list?.network?.country?.code)}
+                />
               </ContainerInfo>
               <Container>
                 {list.genres && <GenreList dataSource={list?.genres} />}
@@ -136,7 +137,7 @@ const Details: React.FC = () => {
                         key={item.id}
                         item={item}
                         onPress={() => {
-                            navigation.navigate('Episodes', item);
+                          navigation.navigate('Episodes', item);
                         }}
                       />
                     ))}
@@ -146,7 +147,7 @@ const Details: React.FC = () => {
               </Container>
             </>
           </ImageHeaderScrollView>
-        }
+        )}
       </Container>
     </>
   );

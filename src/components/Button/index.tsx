@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {ButtonContainer, ButtonTextBold} from './styles';
+import { ButtonContainer, ButtonTextBold } from './styles';
 
 interface ButtonProps {
   text: string;

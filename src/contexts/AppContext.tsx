@@ -1,4 +1,10 @@
-import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext } from 'react';
+import React, {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useContext,
+} from 'react';
 import useDetails from '../hooks/useDetails';
 import { IGetCast } from '../services/Cast';
 import { IGetDetails } from '../services/Details';
@@ -21,7 +27,8 @@ export const useAppContext = () => useContext(AppContext);
 const AppContext = createContext<AppContextType>({} as AppContextType);
 
 function AppProvider({ children }: AppContextProps) {
-  const { loaded, setLoaded, list, setList, castList, setCastList } = useDetails();
+  const { loaded, setLoaded, list, setList, castList, setCastList } =
+    useDetails();
 
   return (
     <AppContext.Provider

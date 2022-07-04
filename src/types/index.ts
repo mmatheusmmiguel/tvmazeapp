@@ -1,6 +1,6 @@
-export interface IGenre {
-  genres?: string[];
-}
+export type IGenre = string[] & {
+  [key: string]: string;
+};
 export interface EpisodeType {
   airdate?: string;
   airstamp?: string;
@@ -22,6 +22,6 @@ export interface EpisodeType {
   url?: string;
 }
 
-export interface SeasonType {
-  id: number[];
-}
+export type SeasonType = number[] & {
+  [key: number]: number;
+};

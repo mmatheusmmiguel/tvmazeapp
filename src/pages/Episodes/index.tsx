@@ -1,12 +1,12 @@
 import React from 'react';
-import { Dimensions, Linking } from 'react-native';
+import {Dimensions, Linking} from 'react-native';
 
 import Button from '../../components/Button';
 import Card from '../../components/Card';
-import { ImageHeaderScrollView } from '../../components/ImageHeaderScrollView';
+import {ImageHeaderScrollView} from '../../components/ImageHeaderScrollView';
 import Info from '../../components/Info';
 import constants from '../../constants';
-import { EpisodeType } from '../../types';
+import {EpisodeType} from '../../types';
 import {
   Container,
   ContainerInfo,
@@ -17,9 +17,8 @@ import {
 } from '../Details/styles';
 
 export function Episodes(details: any) {
-
   const episode: EpisodeType = details.route.params;
-  const { width } = Dimensions.get('window');
+  const {width} = Dimensions.get('window');
 
   const openLinking = async (url: string) => {
     if (url) {
@@ -42,18 +41,16 @@ export function Episodes(details: any) {
         )}
         renderHeader={() => (
           <HeaderImage
-            source={{ uri: episode.image?.original }}
+            source={{uri: episode.image?.original}}
             height={constants.IMAGE_HEADER_HEIGHT}
             width={width}
           />
         )}
-        foregroundExtrapolate={"clamp"}
+        foregroundExtrapolate={'clamp'}
         scrollViewBackgroundColor={'#000'}
-        useNativeDriver={true} foregroundParallaxRatio={0}
-        ScrollViewComponent={() => (
-          <></>
-        )}>
-
+        useNativeDriver={true}
+        foregroundParallaxRatio={0}
+        ScrollViewComponent={() => <></>}>
         <Container>
           <ContainerInfo>
             <Info name="Duration" description={episode.runtime + ' min'} />
@@ -72,9 +69,7 @@ export function Episodes(details: any) {
             text={'WATCH ON TVMAZE'}
           />
         </Container>
-
-
       </ImageHeaderScrollView>
     </Container>
   );
-};
+}
