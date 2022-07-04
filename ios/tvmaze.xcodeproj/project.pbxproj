@@ -536,7 +536,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moogy.tvmaze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moongy.tvmaze;
 				PRODUCT_NAME = tvmaze;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -561,7 +561,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moogy.tvmaze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moongy.tvmaze;
 				PRODUCT_NAME = tvmaze;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
