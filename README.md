@@ -1,7 +1,7 @@
 <div align="center" style="display: flex; flex-direction: row;">
-  <img alt="TVMaze_Splash" src="https://i.imgur.com/X0NWP08.png" width="20%">
-  <img alt="TVMaze_Show" src="https://i.imgur.com/FefZvqw.png" width="20%">
-  <img alt="TVMaze_Episode" src="https://i.imgur.com/xiq9K6A.png" width="20%">
+  <img alt="TVMaze_Splash" src="https://i.imgur.com/X0NWP08.png" width="30%">
+  <img alt="TVMaze_Show" src="https://i.imgur.com/FefZvqw.png" width="30%">
+  <img alt="TVMaze_Episode" src="https://i.imgur.com/xiq9K6A.png" width="30%">
 </div>
 
 <p align="center" style="text-align: center;">
