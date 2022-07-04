@@ -6,7 +6,7 @@ import DetailsService, {IGetDetails} from '../services/Details';
 export default function useDetails() {
   const [loaded, setLoaded] = useState<boolean>(false);
   const [list, setList] = useState<IGetDetails>();
-  const [castList, setCastList] = useState<IGetCast[]>();
+  const [castList, setCastList] = useState<IGetCast[]>([]);
 
   const fetchData = async () => {
     setLoaded(false);

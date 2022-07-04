@@ -1,5 +1,5 @@
 export interface IGenre {
-  name: string;
+  genres?: string[];
 }
 export interface EpisodeType {
   airdate?: string;
@@ -23,5 +23,5 @@ export interface EpisodeType {
 }
 
 export interface SeasonType {
-  id: number;
+  id: number[];
 }

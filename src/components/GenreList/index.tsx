@@ -4,14 +4,14 @@ import Genre from '../Genre';
 import {GenreListContainer} from './styles';
 
 interface GenreListProps {
-  dataSource: IGenre[];
+  dataSource: string[];
 }
 
 export function GenreList({dataSource}: GenreListProps) {
   return (
     <GenreListContainer>
       {dataSource.length &&
-        dataSource?.map((item: IGenre, index) => (
+        dataSource?.map((item: string, index) => (
           <Genre key={index} text={String(item)} />
         ))}
     </GenreListContainer>
