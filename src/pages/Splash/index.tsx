@@ -18,7 +18,7 @@ const Splash: React.FC = () => {
 
   return (
     <SplashContainer>
-      <StatusBar barStyle={'light-content'} backgroundColor={constants.COLORS.WHITE} /> 
+      <StatusBar barStyle={'light-content'} backgroundColor={constants.COLORS.BLACK} /> 
       <LottieContainer>
         <LottieView
           testID={'splash_lottie'}
